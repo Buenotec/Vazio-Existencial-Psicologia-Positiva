@@ -1,0 +1,126 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-display: 'Space Grotesk', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+  }
+}
+
+/* Light Theme Variables & Styles */
+html.light body {
+  background-color: #f1f5f9;
+  color: #0f172a;
+}
+
+html.light .bg-cyber-grid {
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+}
+
+html.light .bg-radial-vignette {
+  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.7) 0%, rgba(226, 232, 240, 0.95) 100%);
+}
+
+/* Dark Theme Variables & Styles */
+html.dark body {
+  background-color: #06070a;
+  color: #f1f5f9;
+}
+
+/* Custom Neon Effects & Cyber Details */
+.neon-glow-cyan {
+  box-shadow: 0 0 30px -5px rgba(6, 182, 212, 0.4), 0 0 12px -2px rgba(6, 182, 212, 0.25);
+}
+
+.neon-glow-purple {
+  box-shadow: 0 0 30px -5px rgba(168, 85, 247, 0.4), 0 0 12px -2px rgba(168, 85, 247, 0.25);
+}
+
+.neon-glow-emerald {
+  box-shadow: 0 0 30px -5px rgba(16, 185, 129, 0.4), 0 0 12px -2px rgba(16, 185, 129, 0.25);
+}
+
+.neon-glow-amber {
+  box-shadow: 0 0 30px -5px rgba(245, 158, 11, 0.4), 0 0 12px -2px rgba(245, 158, 11, 0.25);
+}
+
+.neon-text-cyan {
+  text-shadow: 0 0 12px rgba(6, 182, 212, 0.8), 0 0 24px rgba(6, 182, 212, 0.4);
+}
+
+.neon-text-purple {
+  text-shadow: 0 0 12px rgba(168, 85, 247, 0.8), 0 0 24px rgba(168, 85, 247, 0.4);
+}
+
+.neon-text-emerald {
+  text-shadow: 0 0 12px rgba(16, 185, 129, 0.8), 0 0 24px rgba(16, 185, 129, 0.4);
+}
+
+/* Sleek Cyber Grid Background */
+.bg-cyber-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+}
+
+.bg-radial-vignette {
+  background: radial-gradient(circle at 50% 50%, rgba(13, 21, 38, 0.7) 0%, rgba(6, 7, 10, 0.98) 100%);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00f0ff;
+}
+
+/* No Scrollbar Utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Print/Export Mode for High-Def PDF / Slides Deck */
+@media print {
+  body {
+    background: #06070a !important;
+    color: #f1f5f9 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .slide-container {
+    page-break-after: always;
+    height: 100vh !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+}
